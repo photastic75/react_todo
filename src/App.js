@@ -19,12 +19,12 @@ class App extends Component {
 
   userInput = e => {
     const itemText = e.target.value; //captures the value of text after event click
-    console.log(e);
     const currentInputItem = {
       text: itemText,
       key: Date.now()
     }
     this.setState(currentInputItem); //this is referencing the component
+    console.log(currentInputItem);
   }  
   
   addItem = e => {
@@ -45,7 +45,8 @@ class App extends Component {
         <Todos 
           userInput = {this.userInput} 
           inputElement = {this.inputElement}
-          addItem = {this.addItem} 
+          addItem = {this.addItem}
+          currentItem = {this.state.currentItem} // 'this' creating a reference default values
         />
         {/* build deleteItem */}
         <Items entries = {this.state.allItems} /> {/*this is rendering all items of the to do list jsx comment*/}
